@@ -27,7 +27,7 @@ class RegisterController extends Controller
         //     return redirect()->route('register')->withErrors('Akun anda telah Terdaftar!');
         // }
 
-        dd($request);
+        // dd($request);
         $user = User::create([
             'name' => $request->nama,
             'username' => $request->username,

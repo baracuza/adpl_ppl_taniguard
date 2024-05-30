@@ -15,7 +15,7 @@ class MasukController extends Controller
 
     public function masuk_proses(Request $request){
         if(empty($request->username) || empty($request->password)) {
-            return redirect()->route('masuk')->withErrors('Semua Data Wajib Diisi')->withInput();
+            return redirect()->route('login')->withErrors('Semua Data Wajib Diisi')->withInput();
         }
         
         $infologin = [
@@ -30,12 +30,12 @@ class MasukController extends Controller
                 $user = User::where('username', $request->username)->first();
                 if($user){
                     if(!Hash::check($request->password, $user->password)) {
-                        return redirect()->route('masuk')->withErrors('Maaf data anda tidak valid!');
+                        return redirect()->route('login')->withErrors('Maaf data anda tidak valid!');
                     } else {
-                        return redirect()->route('masuk')->withErrors('Maaf data anda tidak valid!');
+                        return redirect()->route('login')->withErrors('Maaf data anda tidak valid!');
                     }
                 } else{
-                    return redirect()->route('masuk')->withErrors('Maaf data anda tidak valid!');
+                    return redirect()->route('login')->withErrors('Maaf data anda tidak valid!');
                 }
             } 
     }
