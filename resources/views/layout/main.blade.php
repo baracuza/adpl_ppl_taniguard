@@ -203,48 +203,22 @@
     </script>
 
 
-    @if (session('success'))
+    @if ($message = Session::get('success'))
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil',
-                    text: '{{ session('success') }}',
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        confirmButton: 'custom-swal-button'
-                    }
-                });
-            });
+            Swal.fire('{{ $message }}');
         </script>
-        <style>
-            .custom-swal-button {
-                background-color: #475D21 !important;
-                color: white !important;
-            }
-        </style>
     @endif
-    @if (session('update'))
+    @if ($message = Session::get('update'))
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil',
-                    text: '{{ session('update') }}',
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        confirmButton: 'custom-swal-button'
-                    }
-                });
-            });
+            Swal.fire('{{ $message }}');
         </script>
-        <style>
-            .custom-swal-button {
-                background-color: #475D21 !important;
-                color: white !important;
-            }
-        </style>
     @endif
+    @if ($message = Session::get('failed'))
+        <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+    
 </body>
 
 </html>

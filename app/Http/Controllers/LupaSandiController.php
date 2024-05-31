@@ -22,9 +22,9 @@ class LupaSandiController extends Controller
     public function lupa_password_proses(Request $request){
         // dd($request->all());
         $customMessage = [
-            'email.required'     => 'Email tidak boleh kosong',
-            'email.email'        => 'Email tidak valid',
-            'email.exists'       => 'Email belum ada di database',
+            'email.required'     => 'Data wajib diisi',
+            'email.email'        => 'Maaf data anda tidak valid',
+            'email.exists'       => 'Maaf data anda tidak valid',
         ];
 
         $request->validate([
@@ -109,7 +109,7 @@ class LupaSandiController extends Controller
     public function request_email(Request $request){
         $customMessage = [
             'email.required'     => 'Data wajib diisi',
-            'email.exists'       => 'Maaf data tidak valid',
+            'email.exists'       => 'Maaf data anda tidak valid',
         ];
 
 
@@ -122,7 +122,7 @@ class LupaSandiController extends Controller
         if ($status === Password::RESET_LINK_SENT) {
             // Pesan kustom ketika link reset berhasil dikirim
             $successMessage = 'Link reset kata sandi telah berhasil dikirim ke email Anda.';
-            return back()->with(['status' => $successMessage]);
+            return back();
         } else {
             return back()->withErrors(['email' => __($status)]);
         }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\validation\Rule;
 
 class EditProfilController extends Controller
 {
@@ -18,19 +19,20 @@ class EditProfilController extends Controller
         $customMessage = [
             'password.required'     => 'Data wajib diisi',
             'nama.required'         => 'Data wajib diisi',
+            'nama.regex'            => 'Maaf data anda tidak valid',
             'username.required'     => 'Data wajib diisi',
             'email.required'        => 'Data wajib diisi',
-            'gambar.mimes'          => 'Gambar harus berupa file berformat png, jpg, atau jpeg',
-            'gambar.max'            => 'Ukuran gambar maksimal 2MB',
+            'gambar.mimes'          => 'Maaf data anda tidak valid',
+            'gambar.max'            => 'Maaf data anda tidak valid',
         ];
 
 
         $validator = Validator::make($request->all(),[
-            'nama'          => 'required',
+            'nama'          => 'required|regex:/^[a-zA-Z\s]*$/',
             'username'      => 'required',
             'email'         => 'required|email',
             'password'      => 'nullable',
-            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:100',
         ],$customMessage);
         
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);

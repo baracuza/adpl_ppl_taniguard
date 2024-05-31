@@ -18,26 +18,7 @@
                 <div class="card">
                     @if (auth()->user()->hasRole('admin'))
                         <div class="card-header">
-                            <a href=" {{ route('admin.create') }} " class=" btn btn-primary">Tambah</a>
-                            {{-- dibawah ini SEARCH BAR --}}
-                            {{-- <div class="card-tools">
-                  filter
-                  <form action="  " method="GET"> 
-                    <form action=" {{ route(' dasboard ') }} " method="GET">
-                      <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="search" class="form-control float-right" placeholder="Search"> 
-                        <input type="text" name="search" class="form-control float-right" placeholder="Search" value=" {{ $request->get('search') }} ">
-                        
-                        <div class="input-group-append">
-                          <button type="submit" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </form>
-                  </form>
-                </div> --}}
-                            {{-- diATAS ini SEARCH BAR --}}
+                            <a href=" {{ route('admin.create') }} " class="button-custom">Tambah</a>
                         </div>
                     @endif
 
@@ -74,7 +55,7 @@
                                         @if (auth()->user()->hasRole('admin'))
                                             <td style="text-align:justify; vertical-align: middle">
                                                 <a style=" text-align:justify; vertical-align: middle"
-                                                    href=" {{ route('admin.edit', ['id' => $ar->id]) }} "class="  btn btn-primary"><i
+                                                    href=" {{ route('admin.edit', ['id' => $ar->id]) }} "class="button-custom"><i
                                                         class="fas fa-pen"></i>Edit</a>
                                                 {{-- <a href="  "class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>  --}}
                                             </td>

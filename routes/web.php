@@ -7,6 +7,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\Data_pengguna;
 use App\Http\Controllers\DetailArtikelController;
 use App\Http\Controllers\edit_artikel;
+use App\Http\Controllers\EditArtikelController;
 use App\Http\Controllers\EditProfilController;
 use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\LandingController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\LupaSandiController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\PencatatanController;
 use App\Http\Controllers\SensorController;
+use App\Http\Controllers\TambahArtikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -81,11 +83,11 @@ Route::middleware(['auth'])->group(function(){
     
     // artikel
     Route::get('/artikel',[ArtikelController::class,'indexArtikel'])->name('admin.artikel');
-    Route::get('/artikel/menambah',[Buat_artikel::class,'buat_artikel'])->name('admin.create');
-    Route::post('/artikel/menambah/proses-menambah',[Buat_artikel::class,'menambah_artikel'])->name('admin.store'); //{proses menambah untuk create} ini proses dari menambahkan artikel dari fitur tambah(create) artikel
     Route::get('/artikel/lihat-artikel/{id}',[DetailArtikelController::class,'view'])->name('view_artikel');
-    Route::get('/artikel/artikel-edit/{id}',[edit_artikel::class,'edit'])->name('admin.edit');
-    Route::put('/artikel/artikel-edit/update/{id}',[edit_artikel::class,'update'])->name('admin.update'); //{proses update untuk eidt} ini proses mengupdate artikel dari fitur edit artikel
+    Route::get('/artikel/menambah',[TambahArtikelController::class,'create'])->name('admin.create');
+    Route::post('/artikel/menambah/proses-menambah',[TambahArtikelController::class,'store'])->name('admin.store'); //{proses menambah untuk create} ini proses dari menambahkan artikel dari fitur tambah(create) artikel
+    Route::get('/artikel/artikel-edit/{id}',[EditArtikelController::class,'edit'])->name('admin.edit');
+    Route::put('/artikel/artikel-edit/update/{id}',[EditArtikelController::class,'update'])->name('admin.update'); //{proses update untuk eidt} ini proses mengupdate artikel dari fitur edit artikel
     
     Route::get('/keluar',[KeluarController::class,'keluar'])->name('logout');
 

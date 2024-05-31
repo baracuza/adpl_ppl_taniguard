@@ -75,6 +75,26 @@ body {
 
 /* sidebar */
 
+/* artikel */
+.button-custom {
+    background-color: #475D21;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+}
+
+.button-custom:hover {
+    background-color: #668034; /* Darker shade for hover effect */
+    color: white;
+}
+
+/* artikel */
+
 /* filter pencatatan */
 .filter-select {
     width: 200px; /* Atur lebar sesuai kebutuhan Anda */

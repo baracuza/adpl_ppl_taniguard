@@ -40,9 +40,9 @@
                 <img src="{{ asset('storage/gambar-artikel/'.$ardata_view->gambar) }}" width="40%" height="40%" alt="">
             </div>
             @endif
-            <div class="text-center" style="font-size: 20px; margin-top: 70px;" >
+            <div class="text-center" style="font-size: 20px; margin-top: 70px;padding: 0 35px;" >
                 <p style="text-align:justify; hyphens: auto; line-height: 1.5em;">
-                    {{$ardata_view->deskripsi}}
+                    {!! nl2br(e($ardata_view->deskripsi)) !!}
                 </p>
             </div>
         </div>

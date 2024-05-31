@@ -19,12 +19,13 @@ class SandiBaruController extends Controller
         // Custom error messages
         $customMessage = [
             'password.required'     => 'Data wajib diisi',
+            'token.required'        => 'Data wajib diisi',
             'password.confirmed'    => 'Konfirmasi kata sandi tidak cocok',
         ];
 
         // Validasi manual untuk memastikan kedua kolom diisi
         if ($request->filled('password') xor $request->filled('password_confirmation')) {
-            return back()->withErrors(['password' => 'Data tidak valid'])->withInput();
+            return back()->withErrors(['password' => 'Data wajib diisi'])->withInput();
         }
 
         // Laravel validation
@@ -49,9 +50,9 @@ class SandiBaruController extends Controller
         );
 
         if ($status === Password::PASSWORD_RESET) {
-        // Pesan kustom ketika kata sandi berhasil diperbarui
-        $successMessage = 'Kata Sandi berhasil diperbarui';
-        return redirect()->route('masuk')->with('success', $successMessage);
+            // Pesan kustom ketika kata sandi berhasil diperbarui
+            $successMessage = 'Kata Sandi berhasil diperbarui';
+            return redirect()->route('login');
 
         } else {
         return back()->withErrors(['email' => [__($status)]]);

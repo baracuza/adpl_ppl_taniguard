@@ -74,7 +74,7 @@ class ArtikelController extends Controller
         $validator = Validator::make($request->all(),[
             'judul'         => 'required',
             'deskripsi'     => 'required',
-            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:100',
             
             
         ]);

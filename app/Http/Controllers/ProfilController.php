@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
 {
+    // public function profil(){
+    //     $akun = Auth::user();
+    //     return view('profil.profil',compact('akun'));
+    //     return view('profil.profil');
+    // }
     public function profil(){
-        // $akun = Auth::user();
-        // return view('profil.profil',compact('akun'));
         return view('profil.profil');
     }
 

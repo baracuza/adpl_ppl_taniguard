@@ -16,13 +16,23 @@ class edit_artikel extends Controller
     }
 
     public function update(Request $request,$id){
+        $customMessage = [
+            'password.required'     => 'Data wajib diisi',
+            'nama.required'         => 'Data wajib diisi',
+            'nama.regex'            => 'Maaf data anda tidak valid',
+            'username.required'     => 'Data wajib diisi',
+            'email.required'        => 'Data wajib diisi',
+            'gambar.mimes'          => 'Gambar harus berupa file berformat png, jpg, atau jpeg',
+            'gambar.max'            => 'Ukuran gambar maksimal 100KB',
+        ];
+
         $validator = Validator::make($request->all(),[
             'judul'         => 'required',
             'deskripsi'     => 'required',
-            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'gambar'        => 'nullable|mimes:png,jpg,jpeg|max:100',
             
             
-        ]);
+        ],$customMessage);
 
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 

@@ -57,7 +57,7 @@
                         <div class="text-center text-lg-start mt-4 pt-2" style="text-align: center">
                             <div class="form-group-btn text-center">
                                 <button class="btn-edit-profil"
-                                    style="  background-color: rgb(71, 93, 33); color:white; border-radius:10px; padding-left: 10rem; padding-right: 10rem; padding-top:5px; padding-bottom:5px  "
+                                    style="  background-color: rgb(71, 93, 33); color:white; border-radius:10px; padding-left: 11rem; padding-right: 11rem; padding-top:5px; padding-bottom:5px  "
                                     type="submit" class="">Masuk</button>
                             </div>
                             {{-- <button type="submit" class="btn btn-primary btn-block d-block mx-auto"
