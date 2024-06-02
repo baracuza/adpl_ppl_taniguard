@@ -19,7 +19,7 @@ class TambahArtikelController extends Controller
         $customMessage = [
             'judul.required'        => 'Semua data wajib diisi',
             'deskripsi.required'    => 'Semua data wajib diisi',
-            'gambar.required'    => 'Semua data wajib diisi',
+            'gambar.required'       => 'Semua data wajib diisi',
             'gambar.mimes'          => 'Maaf data anda tidak valid',
             'gambar.max'            => 'Maaf data anda tidak valid',
         ];

@@ -48,8 +48,12 @@
 
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Gambar</label>
-                                                <input type="file" class="form-control" id="exampleInputEmail1"
-                                                    name="gambar">
+                                                <div class="input-group">
+                                                    <input type="file" class="form-control" id="gambar" name="gambar"
+                                                        style="display: none;" onchange="previewImage(event); updateFileName()">
+                                                    <label for="gambar" class="btn-input-profil">Pilih Gambar</label>
+                                                    <span id="file-name" class="file-name">Tidak ada gambar dipilih</span>
+                                                </div>
                                             </div>
                                             <div class="mt-4 pt-2">
                                                 @if ($errors->any())

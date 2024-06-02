@@ -63,6 +63,53 @@ body {
     font-weight: 400;
 }
 
+/* edit profil */
+.btn-input-profil {
+    margin-bottom: 10px;
+    background-color: #dbdada;
+    color: #000000;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: back;
+    /* box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.1); */
+}
+.btn-input-profil:hover {
+    background-color: #605a54;
+    color: #e4dfdf;
+}
+
+.form-group .input-group {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.form-group .input-group .form-control-file {
+    display: none;
+}
+
+.form-group .input-group label {
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.form-group .input-group .file-name {
+    flex-grow: 1;
+    padding: 5px 10px;
+    border-left: 1px solid #ced4da;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* edit profil */
+
 /* sidebar */
 .nav-sidebar .nav-link.active {
     background-color: #90A56B !important;

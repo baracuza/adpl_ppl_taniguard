@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TaniGuard</title>
-    
+
     <!-- Favicons -->
-  <link href="{{asset('landing/assets/img/brand_logo.png') }}" rel="icon">
+    <link href="{{ asset('landing/assets/img/brand_logo.png') }}" rel="icon">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -202,6 +201,31 @@
         }
     </script>
 
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('gambar');
+            const fileName = document.getElementById('file-name');
+            if (input.files.length > 0) {
+                fileName.textContent = input.files[0].name;
+            } else {
+                fileName.textContent = 'Tidak ada gambar dipilih';
+            }
+        }
+
+        function previewImage(event) {
+            const input = event.target;
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('preview');
+                preview.src = reader.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+
+            const fileName = document.getElementById('file-name')
+            fileName.textContent = input.files[0].name;
+        }
+    </script>
+
 
     @if ($message = Session::get('success'))
         <script>
@@ -218,7 +242,7 @@
             Swal.fire('{{ $message }}');
         </script>
     @endif
-    
+
 </body>
 
 </html>

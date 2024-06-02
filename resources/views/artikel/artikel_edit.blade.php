@@ -27,31 +27,35 @@
                   <div class="col-md-12">
                     <div class="card-body">
                       @if($ardata->gambar)
-                          <img src="{{ asset('storage/gambar-artikel/'.$ardata->gambar) }}" width="100px" height="100px" alt="">
+                          <img id="preview" src="{{ asset('storage/gambar-artikel/'.$ardata->gambar) }}" width="100px" height="100px" alt="">
                       @endif
                       <div class="form-group">
                         <label for="exampleInputEmail1">Gambar</label>
-                        <input type="file" class="form-control" id="exampleInputEmail1" name="gambar" >
+                        <div class="input-group">
+                          <input type="file" class="form-control" id="gambar" name="gambar"
+                              style="display: none;" onchange="previewImage(event); updateFileName()">
+                          <label for="gambar" class="btn-input-profil">Pilih Gambar</label>
+                          <span id="file-name" class="file-name">Tidak ada gambar dipilih</span>
+                      </div>
                         <small>Upload Foto Jika Ingin Menggantinya</small>
-                        @error('gambar')
-                        <br>
-                            <small> {{$message}} </small>
-                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="judul" value="{{$ardata->judul}}" placeholder="">
-                        @error('judul')
-                            <small> {{$message}} </small>
-                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Deskripsi</label>
                         <textarea  class="form-control" name="deskripsi" rows="7" id="exampleInputEmail1" >{{$ardata->deskripsi}}</textarea>
-                        @error('deskripsi')
-                        <small> {{$message}} </small>
-                        @enderror
                       </div>
+                      @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $alert)
+                                            <li> {{ $alert }} </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                       <div class="form-group-btn">
                         <button class="btn-edit-profil" type="submit" class="btn btn-primary">Simpan</button>
                       </div>

@@ -17,13 +17,10 @@ class EditArtikelController extends Controller
 
     public function update(Request $request,$id){
         $customMessage = [
-            'password.required'     => 'Data wajib diisi',
-            'nama.required'         => 'Data wajib diisi',
-            'nama.regex'            => 'Maaf data anda tidak valid',
-            'username.required'     => 'Data wajib diisi',
-            'email.required'        => 'Data wajib diisi',
-            'gambar.mimes'          => 'Gambar harus berupa file berformat png, jpg, atau jpeg',
-            'gambar.max'            => 'Ukuran gambar maksimal 100KB',
+            'judul.required'        => 'Data wajib diisi',
+            'deskripsi.required'    => 'Data wajib diisi',
+            'gambar.mimes'          => 'Maaf data anda tidak valid',
+            'gambar.max'            => 'Maaf data anda tidak valid',
         ];
 
         $validator = Validator::make($request->all(),[
